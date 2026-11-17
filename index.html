@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lê Trung Kiên – Sinh viên Công nghệ thông tin</title>
+<meta name="description" content="Website giới thiệu cá nhân: giới thiệu, kỹ năng lập trình, dự án và thông tin liên hệ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAF1EE; --surface:#FFFFFF; --ink:#12302A; --muted:#51675F;
+  --line:#CBD9D3; --accent:#2B44F0; --accent-ink:#FFFFFF;
+  --side:260px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1D19; --surface:#16282F; --ink:#E6F0EC; --muted:#9DB4AB;
+    --line:#2A423A; --accent:#8FA2FF; --accent-ink:#0F1D19;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1D19; --surface:#16282F; --ink:#E6F0EC; --muted:#9DB4AB;
+  --line:#2A423A; --accent:#8FA2FF; --accent-ink:#0F1D19;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Be Vietnam Pro",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Be Vietnam Pro",sans-serif;line-height:1.1;margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Sidebar */
+.side{position:fixed;inset:0 auto 0 0;width:var(--side);padding:32px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:32px;background:var(--bg)}
+.brand{font:800 22px/1.1 "Bricolage Grotesque",sans-serif;text-decoration:none;color:var(--ink)}
+.side nav{display:flex;flex-direction:column;gap:4px}
+.side nav a{padding:8px 12px;margin-left:-12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:500;border-left:3px solid transparent}
+.side nav a:hover{color:var(--ink)}
+.side nav a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent);border-radius:0 8px 8px 0;background:var(--surface)}
+.side .foot{margin-top:auto;font-size:14px;color:var(--muted)}
+.side button{font:inherit;font-size:14px;color:var(--ink);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;margin-bottom:12px}
+
+/* Main */
+main{margin-left:var(--side)}
+section{padding:96px 7vw;max-width:980px}
+section+section{border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:28px}
+p{max-width:62ch;margin:0 0 1em}
+
+/* Home */
+#home{min-height:100vh;display:flex;flex-direction:column;justify-content:center;border:0}
+#home h1{font-size:clamp(52px,9vw,112px);font-weight:800;letter-spacing:-.03em;margin-bottom:24px}
+#home .role{font-size:clamp(19px,2.2vw,24px);color:var(--muted);max-width:30ch;margin-bottom:36px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{color:var(--accent)}
+.btn:hover{filter:brightness(1.1)}
+
+/* About */
+.facts{display:grid;grid-template-columns:max-content 1fr;gap:10px 28px;margin:28px 0 0;padding:0}
+.facts dt{color:var(--muted)} .facts dd{margin:0;font-weight:500}
+
+/* Skills */
+.skill{display:grid;grid-template-columns:150px 1fr 48px;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.skill .bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.skill .bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.skill span:last-child{text-align:right;color:var(--muted);font-size:15px}
+
+/* Projects */
+.proj{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:28px 0;
+    border-bottom:1px solid var(--line)
+}.proj h3{font-size:24px}
+.proj p{grid-column:1;margin:0;color:var(--muted)}
+.tags{grid-column:1;display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.tags span{font-size:14px;padding:2px 12px;border:1px solid var(--line);border-radius:99px;background:var(--surface)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+.links{list-style:none;padding:0;margin:0}
+.links li{padding:10px 0;border-bottom:1px solid var(--line)}
+.links b{display:block;font-weight:500;color:var(--muted);font-size:14px}
+form{display:grid;gap:14px}
+label{display:grid;gap:6px;font-weight:500;font-size:15px}
+input,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 14px;width:100%}
+textarea{min-height:130px;resize:vertical}
+form .btn{border:2px solid var(--accent);cursor:pointer;font:inherit;font-weight:600;justify-self:start}
+#msg{min-height:1.5em;font-size:15px;color:var(--muted);margin:0}
+footer{margin-left:var(--side);padding:28px 7vw;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+
+/* Mobile */
+@media (max-width:860px){
+  .side{position:sticky;top:0;inset:auto;width:100%;flex-direction:row;align-items:center;gap:12px;padding:10px 16px;border:0;border-bottom:1px solid var(--line);z-index:5;overflow-x:auto}
+  .side nav{flex-direction:row;gap:0}
+  .side nav a{margin:0;border:0;white-space:nowrap;padding:8px 10px}
+  .side nav a.on{border-radius:8px}
+  .side .foot{margin:0 0 0 auto}.side .foot p,.side .foot small{display:none}
+  .side button{margin:0;white-space:nowrap}
+  main,footer{margin-left:0}
+  section{padding:64px 22px}
+  #home{min-height:80vh}
+  .skill{grid-template-columns:1fr 48px}.skill .bar{grid-column:1/-1;grid-row:2}
+  .contact{grid-template-columns:1fr;gap:32px}
+  .proj{grid-template-columns:1fr}.proj a{grid-column:1;grid-row:auto}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.skill .bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<aside class="side">
+  <a class="brand" href="#home">Trung Kiên</a>
+  <nav aria-label="Điều hướng chính">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="foot">
+    <button id="theme" type="button">Đổi giao diện</button>
+    <p>TP. Nha Trang</p>
+  </div>
+</aside>
+
+<main>
+  <section id="home">
+    <h1>Lê<br>Trung Kiên</h1>
+    <p class="role">Sinh viên Công nghệ thông tin, thích xây dựng website và hệ thống chạy thật trên Internet.</p>
+    <div class="btns">
+      <a class="btn main" href="#projects">Xem dự án</a>
+      <a class="btn alt" href="#contact">Liên hệ</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Xin chào, mình là Trung Kiên, sinh viên năm 4 ngành Công nghệ thông tin. Mình bắt đầu lập trình từ những bài tập đơn giản trên lớp và dần chuyển sang làm các ứng dụng web hoàn chỉnh, từ giao diện đến máy chủ.</p>
+    <p>Mình quan tâm đến phát triển web, an toàn thông tin và vận hành hệ thống. Mục tiêu của mình là trở thành lập trình viên full-stack, đồng thời hiểu rõ cách một website được triển khai và bảo vệ ngoài môi trường thật.</p>
+    <dl class="facts">
+      <dt>Trường</dt><dd>Đại học Nha Trang</dd>
+      <dt>Ngành</dt><dd>Công nghệ thông tin</dd>
+      <dt>Định hướng</dt><dd>Full-stack, DevOps cơ bản</dd>
+      <dt>Đang học</dt><dd>Docker, bảo mật ứng dụng web</dd>
+    </dl>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div id="skillList"></div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div id="projList"></div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>
+        <p>Bạn có câu hỏi hoặc muốn hợp tác? Gửi tin nhắn hoặc liên hệ trực tiếp qua các kênh dưới đây.</p>
+        <ul class="links">
+          <li><b>Email</b><a href="mailto:vana@example.com">vana@example.com</a></li>
+          <li><b>GitHub</b><a href="https://github.com/" rel="noopener">github.com/vana</a></li>
+          <li><b>Điện thoại</b>0900 000 000</li>
+        </ul>
+      </div>
+      <form id="form" novalidate>
+        <label>Họ tên <input name="name" required autocomplete="name"></label>
+        <label>Email <input name="email" type="email" required autocomplete="email"></label>
+        <label>Nội dung <textarea name="body" required></textarea></label>
+        <button class="btn main" type="submit">Gửi tin nhắn</button>
+        <p id="msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> Lê Trung Kiên. Website tự xây dựng và tự triển khai.</footer>
+
+<script>
+// ===== Sửa nội dung của bạn ở đây =====
+const SKILLS = [
+    ["C#", 60],
+    ["Python", 55],
+    ["C / C++", 40],
+    ["ASP.NET MVC", 50],
+    ["SQL Server", 60],
+    ["HTML / CSS", 50],
+    ["Bootstrap", 45],
+    ["Entity Framework", 50],
+    ["Git / GitHub", 60],
+    ["Computer Vision", 30]
+];const PROJECTS = [
+    {
+        t: "Website quản lý chấm công",
+        d: "Xây dựng hệ thống quản lý nhân viên, ca làm việc, phân công ca và chấm công vào/ra.",
+        tags: ["C#", "ASP.NET MVC", "Entity Framework", "SQL Server"],
+        url: "#"
+    },
+    {
+        t: "Ứng dụng trắc nghiệm Python",
+        d: "Ứng dụng Quiz có giao diện Tkinter, hỗ trợ chơi trắc nghiệm và thêm câu hỏi vào kho dữ liệu JSON.",
+        tags: ["Python", "Tkinter", "JSON"],
+        url: "#"
+    },
+    {
+        t: "Fish Fillet Freshness Detection",
+        d: "Nghiên cứu hệ thống ứng dụng Deep Learning để nhận diện và phân loại độ tươi của phi lê cá trên băng chuyền thành hai mức.",
+        tags: ["Python", "Deep Learning", "Computer Vision"],
+        url: "#"
+    }
+];
+// ======================================
+
+const $ = s => document.querySelector(s);
+$("#yr").textContent = new Date().getFullYear();
+
+$("#skillList").innerHTML = SKILLS.map(([n,v]) =>
+  `<div class="skill"><span>${n}</span><div class="bar"><i data-w="${v}"></i></div><span>${v}%</span></div>`).join("");
+
+$("#projList").innerHTML = PROJECTS.map(p =>
+  `<article class="proj">
+    <h3>${p.t}</h3>
+    <p>${p.d}</p>
+    <div class="tags">
+      ${p.tags.map(t=>`<span>${t}</span>`).join("")}
+    </div>
+  </article>`
+).join("");// Thanh kỹ năng chạy khi cuộn tới
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.querySelectorAll("i").forEach(i => i.style.width = i.dataset.w + "%"); io.unobserve(e.target); }
+}), {threshold:.2});
+io.observe($("#skillList"));
+
+// Làm nổi mục đang xem trong menu
+const links = [...document.querySelectorAll(".side nav a")];
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+}), {rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("section").forEach(s => spy.observe(s));
+
+// Đổi sáng/tối
+$("#theme").onclick = () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme:dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+};
+
+// Form liên hệ: hiện mở ứng dụng email. Có backend thì đổi sang fetch("/api/contact", ...)
+$("#form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, m = $("#msg");
+  if (!f.name.value.trim() || !f.email.validity.valid || !f.body.value.trim()) {
+    m.textContent = "Vui lòng nhập đủ họ tên, email hợp lệ và nội dung."; return;
+  }
+  const sub = encodeURIComponent("Liên hệ từ website: " + f.name.value.trim());
+  const body = encodeURIComponent(f.body.value.trim() + "\n\n" + f.name.value.trim() + " (" + f.email.value.trim() + ")");
+  location.href = `mailto:vana@example.com?subject=${sub}&body=${body}`;
+  m.textContent = "Đang mở ứng dụng email của bạn.";
+});
+</script>
+</body>
+</html>
